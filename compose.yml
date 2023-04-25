@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: docker/python/
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/src
+    environment:
+      UID: ${UID:-1000}
+      GID: ${GID:-1000}
+    tty: true
